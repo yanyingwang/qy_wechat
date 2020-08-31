@@ -12,7 +12,7 @@ module QyWechat
     def initialize(corpid, corpsecret, agentid=nil)
       @corpid = corpid
       @corpsecret = corpsecret
-      @agentid = nil
+      @agentid = agentid
     end
 
     def gettoken
@@ -43,7 +43,7 @@ module QyWechat
       if params[:agentid].nil?
         params[:agentid] = @agentid
       end
-      BASE_URL + params.to_query
+      "https://open.work.weixin.qq.com/wwopen/sso/qrConnect?" + params.to_query
     end
 
     def conn
@@ -55,6 +55,5 @@ module QyWechat
       end
     end
   end
-
 
 end
