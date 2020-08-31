@@ -27,7 +27,9 @@ module QyWechat
     end
 
     def access_token
-      access_token_expired? ? gettoken : @access_token
+      gettoken unless @access_token
+      gettoken if access_token_expired?
+      @access_token
     end
 
     def access_token_expired?
@@ -45,11 +47,11 @@ module QyWechat
     end
 
     def conn
-      Faraday.new(BASE_URL) do |req|
+      Faraday.new(BASE_URL) do |faraday|
         faraday.request  :url_encoded
         faraday.response :logger, ::Logger.new(STDOUT), :bodies => true
         faraday.adapter  Faraday.default_adapter
-        req.headers['Content-Type'] = 'application/json'
+        faraday.headers['Content-Type'] = 'application/json'
       end
     end
   end
