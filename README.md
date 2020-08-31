@@ -1,5 +1,26 @@
 # QyWechat
 
+## doc
+
+    $./bin/console
+
+
+~~~ruby
+c = QyWechat::Api.new 'corpid-123', "corpsecret-123", "agentid-123" # agentid can be absent
+c.corpid
+c.corpsecret
+c.agentid
+c.access_token # access_token will updated itself auto if expired and you accessed this method
+d.gen_qrConnect_link(appid: "appid-123", # can be absent
+                     agentid: "agentid-123", can be absent
+                     redirect_uri: "http://you-webside-domain.com/path/abc",
+                     state: "url-state-params-of-the-redirect-uri")
+~~~
+
+
+
+
+# others
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/qy_wechat`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
