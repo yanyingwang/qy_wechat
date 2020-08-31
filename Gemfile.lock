@@ -3,6 +3,7 @@ PATH
   specs:
     qy_wechat (0.1.0)
       activesupport
+      faraday
 
 GEM
   remote: https://rubygems.org/
