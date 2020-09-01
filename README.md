@@ -1,4 +1,6 @@
-# QyWechat
+QyWechat
+====
+
 
 ## example:
 
@@ -6,7 +8,10 @@
 
 
 ~~~ruby
-c = QyWechat::Api.new 'corpid-123', "corpsecret-123", "agentid-123" # agentid can be absent
+c = QyWechat::Api.new 'corpid-123',
+                      "corpsecret-123",
+                      "agentid-123", # agentid can be absent
+                      true # set debug_mode to true to show request debug log message
 c.corpid
 c.corpsecret
 c.agentid
@@ -20,7 +25,11 @@ c.gen_qrConnect_link(appid: "appid-123", # can be absent
                      state: "url-state-params-of-the-redirect-uri")
 
 c.user_getuserinfo(code: "12343")
+c.raw_get("user/getuserinfo, code: "12343") # same as previous line code, but use a low level method to do the reqeust.
+
+c.debug_mode = false # turn off debug mode
 ~~~
+
 
 
 
