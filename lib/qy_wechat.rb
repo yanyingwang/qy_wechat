@@ -30,7 +30,7 @@ module QyWechat
       @access_token = reh["access_token"]
     end
 
-    def check_access_token
+    def access_token
       gettoken unless @access_token
       gettoken if access_token_expired?
       @access_token
