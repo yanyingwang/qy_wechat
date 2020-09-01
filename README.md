@@ -11,12 +11,12 @@ QyWechat
 c = QyWechat::Api.new 'corpid-123',
                       "corpsecret-123",
                       "agentid-123", # agentid can be absent
-                      true # set debug_mode to true to show request debug log message, the omission of it will set it to false
+                      true # set debug_mode to true to show request's debug log, the omission of it will set it to false.
 c.corpid
 c.corpsecret
 c.agentid
 
-c.access_token # access_token will auto updated itself if expired when you accessed it
+c.access_token # access_token will auto update itself if expired when you access it
 
 c.gen_qrConnect_link(appid: "appid-123", # can be absent
                      agentid: "agentid-123", # can be absent
@@ -24,7 +24,7 @@ c.gen_qrConnect_link(appid: "appid-123", # can be absent
                      state: "url-state-params-of-the-redirect-uri")
 
 c.user_getuserinfo(code: "12343")
-c.raw_get("user/getuserinfo, code: "12343") # same as previous line code, but use a low level method to do the reqeust.
+c.raw_get("user/getuserinfo, code: "12343") # same as previous line, but instead using a low level method to do the reqeust.
 
 c.debug_mode = false # turn off debug mode
 ~~~
