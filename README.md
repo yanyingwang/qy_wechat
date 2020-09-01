@@ -19,7 +19,7 @@ c.agentid
 c.access_token # access_token will auto updated itself if expired when you accessed it
 
 c.gen_qrConnect_link(appid: "appid-123", # can be absent
-                     agentid: "agentid-123", can be absent
+                     agentid: "agentid-123", # can be absent
                      redirect_uri: "http://you-webside-domain.com/path/abc",
                      state: "url-state-params-of-the-redirect-uri")
 
