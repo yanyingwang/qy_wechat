@@ -11,13 +11,12 @@ QyWechat
 c = QyWechat::Api.new 'corpid-123',
                       "corpsecret-123",
                       "agentid-123", # agentid can be absent
-                      true # set debug_mode to true to show request debug log message
+                      true # set debug_mode to true to show request debug log message, the omission of it will set it to false
 c.corpid
 c.corpsecret
 c.agentid
 
-# set to show debug logs
-c.access_token # access_token will updated itself auto if expired and you accessed this method
+c.access_token # access_token will auto updated itself if expired when you accessed it
 
 c.gen_qrConnect_link(appid: "appid-123", # can be absent
                      agentid: "agentid-123", can be absent
