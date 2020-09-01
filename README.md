@@ -1,6 +1,6 @@
 # QyWechat
 
-## doc
+## example:
 
     $./bin/console
 
@@ -14,10 +14,12 @@ c.agentid
 # set to show debug logs
 c.access_token # access_token will updated itself auto if expired and you accessed this method
 
-d.gen_qrConnect_link(appid: "appid-123", # can be absent
+c.gen_qrConnect_link(appid: "appid-123", # can be absent
                      agentid: "agentid-123", can be absent
                      redirect_uri: "http://you-webside-domain.com/path/abc",
                      state: "url-state-params-of-the-redirect-uri")
+
+c.user_getuserinfo(code: "12343")
 ~~~
 
 

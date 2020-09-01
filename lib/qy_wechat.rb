@@ -15,8 +15,12 @@ module QyWechat
       @agentid = agentid
     end
 
+    def user_getuserinfo(params)
+      re = conn.get "cgi-bin/user/getuserinfo", { access_token: access_token, code: params[:code] }.to_json
+    end
+
     def gettoken
-      re = conn.post "/cgi-bin/gettoken", {corpid: @corpid, corpsecret: @corpsecret}.to_json
+      re = conn.post "/cgi-bin/gettoken", { corpid: @corpid, corpsecret: @corpsecret }.to_json
       raise "error: #{re}" if re.status != 200 and re
 
       reh = JSON.parse re.body
@@ -26,7 +30,7 @@ module QyWechat
       @access_token = reh["access_token"]
     end
 
-    def access_token
+    def check_access_token
       gettoken unless @access_token
       gettoken if access_token_expired?
       @access_token
