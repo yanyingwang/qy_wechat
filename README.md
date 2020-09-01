@@ -8,10 +8,10 @@ QyWechat
 
 
 ~~~ruby
-c = QyWechat::Api.new 'corpid-123',
+c = QyWechat::Api.new('corpid-123',
                       "corpsecret-123",
                       "agentid-123", # agentid can be absent
-                      true # set debug_mode to true to show request's debug log, the omission of it will set it to false.
+                      debug_mode: true)  # set debug_mode to true to show request's debug log, the omission of it will set it to false.
 c.corpid
 c.corpsecret
 c.agentid

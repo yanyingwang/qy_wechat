@@ -11,13 +11,12 @@ module QyWechat
     attr_reader :corpid, :corpsecret, :agentid
     attr_accessor :debug_mode
 
-    def initialize(corpid, corpsecret, agentid=nil, debug_mode=false)
+    def initialize(corpid, corpsecret, agentid=nil, **args)
       @corpid = corpid
       @corpsecret = corpsecret
       @agentid = agentid
-      @debug_mode = debug_mode
+      @debug_mode = args[:debug_mode]
     end
-
 
     [ :user_get, :user_getuserinfo ].each do |name|
       define_method name do |args|
@@ -73,7 +72,7 @@ module QyWechat
     private
     #TODO: enhance method missing => filter methods like defined_method?(name)... super unless KNOWN_METHODS.include? name
     # add respond_to? ....
-    def method_missing(method, *args, &block)
+    def method_missing(method, **args, &block)
       path = method.to_s.split("_", 2).join("/")
       args.merge!(access_token: access_token)
       case path
